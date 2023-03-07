@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3d 正方体</title>
+  <style>
+    .box {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 100px;
+
+      /* 在父元素中添加 transform-style 来启用 3d 空间 */
+      transform-style: preserve-3d;
+      /* rotateX 旋转导致变换的xyz轴中心变化了！！！ */
+      transform: rotateX(-45deg) rotateY(45deg);
+      /* transform: rotateX(-45deg) rotateY(45deg) scaleZ(2); */
+    }
+
+    .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .top {
+      background-color: rgba(228, 78, 9, 0.5);
+      transform: rotateX(90deg) translateZ(50px);
+    }
+
+    .bottom {
+      background-color: rgba(0, 179, 255, 0.5);
+      transform: rotateX(-90deg) translateZ(50px);
+    }
+
+    .front {
+      background-color: rgba(43, 51, 43, 0.5);
+      transform: translateZ(50px);
+    }
+
+    .back {
+      background-color: rgba(235, 10, 115, 0.5);
+      transform: rotateY(180deg) translateZ(50px);
+    }
+
+    .left {
+      background-color: rgba(255, 255, 0, 0.5);
+      transform: rotateY(-90deg) translateZ(50px);
+    }
+
+    .right {
+      background-color: rgba(255, 0, 255, 0.5);
+      transform: rotateY(90deg) translateZ(50px);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 正方形 -->
+  <div class="box">
+    <div class="item top">1</div>
+    <div class="item bottom">2</div>
+    <div class="item front">3</div>
+    <div class="item back">4</div>
+    <div class="item left">5</div>
+    <div class="item right">6</div>
+  </div>
+
+  <!-- 3d 背面可见效 backface-visibility: hidden;-->
+</body>
+
+</html>
